@@ -1,0 +1,38 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+{% extends "main/header.html" %}
+
+{% block content %}
+  <div class="row">
+    {% load static %}
+    {% for inst in instructors %}
+    <div class="col s9 m5">
+      <div class="card">
+        <div class="card-image">
+          <img class="activator" src="{% static "main/profile_images/jontybonty.jpg" %}" alt="My image">
+          <span class="card-title"></span>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{inst.instructor_name}}<i class="material-icons right">Age: {{inst.instructor_age}}</i></span>
+          <p>Lesson Fee (40 minutes): £{{inst.instructor_price}}</p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Instructor Bio<i class="material-icons right">close</i></span>
+          <p>Like to fondle oval balls</p>
+          <!-- Insert an Instructor Bio field and variable here  -->
+          <div class="card-action">
+              <a href="#">Book instructor</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+</body>
